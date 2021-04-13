@@ -6,10 +6,10 @@ export class Customer
     email?: string;
     birthday?: string;
 
-    address?: string;
     cep?: string;
+    address?: string;
     number_address?: string;
-    neighboard?: string;
+    district?: string;
     complement?: string;
     city?: string;
     

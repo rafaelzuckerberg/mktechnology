@@ -42,7 +42,6 @@ export class ListCustomersComponent implements OnInit {
   getCustomers() {
     this.service.getCustomer()
         .subscribe((customers) => {
-          console.log(customers);
           this.dataSource = new MatTableDataSource(customers);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
@@ -54,7 +53,7 @@ export class ListCustomersComponent implements OnInit {
     this.service.customer = Object.assign({}, user);
     const dialogRef = this.dialog.open(CreateEditCustomerComponent, {
       width: '600px',
-      height: '350px'
+      height: '480px'
     });
 
     dialogRef.afterClosed().subscribe();

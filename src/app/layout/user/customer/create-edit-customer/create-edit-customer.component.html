@@ -35,8 +35,38 @@
     </div>
 
     <div fxLayout="row">
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="cep" (input)="getCep($event.target.value)" formControlName="cep">
+        </mat-form-field>
+
+        <div fxFlex></div>
+
+        <mat-form-field fxFlex="48">
             <input matInput type="text" placeholder="Endereço" formControlName="address">
+        </mat-form-field>
+    </div>
+    
+    <div fxLayout="row">
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="Nº" formControlName="number_address">
+        </mat-form-field>
+
+        <div fxFlex></div>
+
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="Bairro" formControlName="district">
+        </mat-form-field>
+    </div>
+    
+    <div fxLayout="row">
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="Complemento" formControlName="complement">
+        </mat-form-field>
+
+        <div fxFlex></div>
+
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="Cidade" formControlName="city">
         </mat-form-field>
     </div>
 

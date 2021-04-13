@@ -12,5 +12,8 @@
             <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Produtos' | translate }}
         </a>
 
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/orders/list']">
+            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Pedidos de vendas' | translate }}
+        </a>
     </mat-nav-list>
 </div>

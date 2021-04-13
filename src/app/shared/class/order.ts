@@ -1,6 +1,6 @@
 export class Order 
 {
-    id?: string;
+    uid?: string;
     created_at?: string; // data e hora da venda
     uid_customer?: string;
     uid_product?: string;

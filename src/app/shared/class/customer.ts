@@ -4,7 +4,13 @@ export class Customer
     name?: string;
     cpf?: string;
     email?: string;
-    address?: string;
     birthday?: string;
+
+    address?: string;
+    cep?: string;
+    number_address?: string;
+    neighboard?: string;
+    complement?: string;
+    city?: string;
     
 }

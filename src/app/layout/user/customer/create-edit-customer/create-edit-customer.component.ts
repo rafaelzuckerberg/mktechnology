@@ -14,7 +14,7 @@ export class CreateEditCustomerComponent implements OnInit {
   form: FormGroup;
   clicked: boolean = false;
 
-  constructor(private fb: FormBuilder, public modal: MatDialogRef<CreateEditCustomerComponent>, private service: UserService, private snackbar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, public modal: MatDialogRef<CreateEditCustomerComponent>, public service: UserService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.initForm();

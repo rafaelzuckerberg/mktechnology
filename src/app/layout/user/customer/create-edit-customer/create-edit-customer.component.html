@@ -24,19 +24,19 @@
     
     <div fxLayout="row">
         <mat-form-field fxFlex="48">
-            <input matInput type="text" placeholder="CPF" formControlName="cpf">
+            <input matInput type="text" placeholder="CPF" formControlName="cpf" cpf>
         </mat-form-field>
 
         <div fxFlex></div>
 
         <mat-form-field fxFlex="48">
-            <input matInput type="text" placeholder="Aniversário" formControlName="birthday">
+            <input matInput type="text" placeholder="Aniversário" formControlName="birthday" date>
         </mat-form-field>
     </div>
 
     <div fxLayout="row">
         <mat-form-field fxFlex="48">
-            <input matInput type="text" placeholder="cep" (input)="getCep($event.target.value)" formControlName="cep">
+            <input matInput type="text" placeholder="cep" (input)="getCep($event.target.value)" formControlName="cep" cep>
         </mat-form-field>
 
         <div fxFlex></div>

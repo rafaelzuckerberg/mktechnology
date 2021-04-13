@@ -31,6 +31,8 @@
         "chart.js": "2.9.3",
         "core-js": "3.6.5",
         "firebase": "^7.24.0",
+        "jquery": "^3.6.0",
+        "jquery-mask-plugin": "^1.14.16",
         "ng2-charts": "2.3.0",
         "rxjs": "6.5.5",
         "web-animations-js": "^2.3.2",

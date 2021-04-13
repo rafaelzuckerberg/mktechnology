@@ -16,6 +16,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule } from '@ngx-translate/core';
+import { CepDirective } from '../../directives/cep.directive';
+import { MoneyDirective } from '../../directives/money.directive';
+import { CpfDirective } from '../../directives/cpf.directive';
+import { DateDirective } from '../../directives/date.directive';
 
 @NgModule({
     imports: [
@@ -36,9 +40,16 @@ import { TranslateModule } from '@ngx-translate/core';
         MatDialogModule,
         MatSnackBarModule,
 
-        TranslateModule,
+        TranslateModule,        
     ],
-    declarations: [StatComponent],
+    declarations: [
+        StatComponent, 
+        CepDirective, 
+        MoneyDirective, 
+        CpfDirective, 
+        DateDirective
+    ]
+        ,
     exports: [
         StatComponent,
         MatTableModule,
@@ -55,6 +66,11 @@ import { TranslateModule } from '@ngx-translate/core';
         MatSnackBarModule,
 
         TranslateModule,
+
+        CepDirective,
+        MoneyDirective,
+        CpfDirective,
+        DateDirective
     ]
 })
 export class StatModule {}

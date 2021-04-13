@@ -26,8 +26,7 @@ export class ListCustomersComponent implements OnInit {
   constructor(private service: UserService, public dialog: MatDialog, private snackbar: MatSnackBar) {    
   }
 
-  ngOnInit() {
-    
+  ngOnInit() {    
     this.getCustomers();
   }
 

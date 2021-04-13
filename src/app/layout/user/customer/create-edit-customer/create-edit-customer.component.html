@@ -43,13 +43,13 @@
 
     <div fxLayout="row">
         <div fxFlex="45%">
-            <button mat-stroked-button color="primary">{{ this.service.customer.uid ? 'Alterar' : 'Cadastrar' }}</button>
+            <button mat-stroked-button color="primary" [disabled]="!form.valid || clicked">{{ this.service.customer.uid ? 'Alterar' : 'Cadastrar' }}</button>
         </div>
 
         <div fxFlex></div>
 
         <div fxFlex="45%">
-            <button type="button" mat-stroked-button color="warn" (click)="closeModal(null)">Cancelar</button>
+            <button type="button" mat-stroked-button color="warn" [disabled]="clicked" (click)="closeModal(null)">Cancelar</button>
         </div>
     </div>
 </form>

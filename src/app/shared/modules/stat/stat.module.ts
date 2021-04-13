@@ -42,6 +42,8 @@ import { TranslateModule } from '@ngx-translate/core';
     exports: [
         StatComponent,
         MatTableModule,
+        MatGridListModule,
+        MatCardModule,
         MatToolbarModule,
         MatButtonModule,
         MatSidenavModule,

@@ -5,15 +5,15 @@
         </a>
 
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/users/customers']">
-            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Clientes' | translate }}
+            <mat-icon class="sidenav-icon">person</mat-icon> {{ 'Clientes' | translate }}
         </a>
 
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/products/list']">
-            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Produtos' | translate }}
+            <mat-icon class="sidenav-icon">takeout_dining</mat-icon> {{ 'Produtos' | translate }}
         </a>
 
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/orders/list']">
-            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Pedidos de vendas' | translate }}
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/ecommerce/products']">
+            <mat-icon class="sidenav-icon">point_of_sale</mat-icon> {{ 'Pedidos de vendas' | translate }}
         </a>
     </mat-nav-list>
 </div>

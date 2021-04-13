@@ -1,1 +1,55 @@
-<p>create-edit-customer works!</p>
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex>
+    </div>
+    <div fxFlex="50%">
+        <h3>{{ this.service.customer.uid ? 'Atualizar Cliente' : 'Cadastrar Cliente' }}</h3>
+    </div>
+    <div fxFlex>
+    </div>
+</div>
+
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div fxLayout="row">
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="Nome" formControlName="name">
+        </mat-form-field>
+
+        <div fxFlex></div>
+
+        <mat-form-field fxFlex="48">
+            <input matInput type="email" placeholder="Email" formControlName="email" #input (input)="input.value=$event.target.value.toLowerCase()">
+        </mat-form-field>
+    </div>
+    
+    <div fxLayout="row">
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="CPF" formControlName="cpf">
+        </mat-form-field>
+
+        <div fxFlex></div>
+
+        <mat-form-field fxFlex="48">
+            <input matInput type="text" placeholder="Aniversário" formControlName="birthday">
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+            <input matInput type="text" placeholder="Endereço" formControlName="address">
+        </mat-form-field>
+    </div>
+
+
+    <div fxLayout="row">
+        <div fxFlex="45%">
+            <button mat-stroked-button color="primary">{{ this.service.customer.uid ? 'Alterar' : 'Cadastrar' }}</button>
+        </div>
+
+        <div fxFlex></div>
+
+        <div fxFlex="45%">
+            <button type="button" mat-stroked-button color="warn" (click)="closeModal(null)">Cancelar</button>
+        </div>
+    </div>
+</form>

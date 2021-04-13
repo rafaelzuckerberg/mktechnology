@@ -1,24 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Customer } from 'src/app/shared/class/customer';
+import { UserService } from 'src/app/shared/services/user.service';
+import { CreateEditCustomerComponent } from '../create-edit-customer/create-edit-customer.component';
+import { DeleteCustomerComponent } from '../delete-customer/delete-customer.component';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-/** Constants used to fill up our data base. */
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-  'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
 
 @Component({
   selector: 'app-list-customers',
@@ -27,23 +17,18 @@ const NAMES: string[] = [
 })
 export class ListCustomersComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['uid', 'name', 'email', 'cpf', 'birthday', 'icons'];
+  dataSource: MatTableDataSource<Customer>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(private service: UserService, public dialog: MatDialog, private snackbar: MatSnackBar) {    
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
+    this.getCustomers();
   }
 
   applyFilter(event: Event) {
@@ -54,17 +39,51 @@ export class ListCustomersComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  getCustomers() {
+    this.service.getCustomer()
+        .subscribe((customers) => {
+          console.log(customers);
+          this.dataSource = new MatTableDataSource(customers);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        });
+  }
+
+
+  openModal(user: Customer) {
+    this.service.customer = Object.assign({}, user);
+    const dialogRef = this.dialog.open(CreateEditCustomerComponent, {
+      width: '600px',
+      height: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe();
+  }
+
+
+  delete(id) {
+    const dialogRef = this.dialog.open(DeleteCustomerComponent, {
+      width: '400px',
+      height: '250px',
+      disableClose: true,
+      data: {
+        uid: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if(res != null) {
+        this.openSnackBar('Cliente deletado com sucesso!');
+      }
+    });
+  }
+
+
+  openSnackBar(message: string) {
+    this.snackbar.open(message, 'Fechar', {
+      duration: 2000,
+    });
+  }
+
 }
 
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
-}

@@ -13,6 +13,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -31,6 +33,8 @@ import { TranslateModule } from '@ngx-translate/core';
         MatTableModule,
         MatPaginatorModule,
         MatSortModule,
+        MatDialogModule,
+        MatSnackBarModule,
 
         TranslateModule,
     ],
@@ -47,6 +51,8 @@ import { TranslateModule } from '@ngx-translate/core';
         MatIconModule,
         MatPaginatorModule,
         MatSortModule,
+        MatDialogModule,
+        MatSnackBarModule,
 
         TranslateModule,
     ]

@@ -1,1 +1,29 @@
-<p>delete-customer works!</p>
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex>
+    </div>
+    <div fxFlex="90%">
+        <h2>Deseja deletar realmente?</h2>
+    </div>
+    <div fxFlex>
+    </div>
+</div>
+
+
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex>
+        <h3>Cliente será deletado</h3>
+    </div>
+</div>
+
+
+<div fxLayout="row">
+    <div fxFlex="45%">
+        <button mat-stroked-button color="primary" (click)="delete()" [disabled]="clicked">Deletar</button>
+    </div>
+
+    <div fxFlex></div>
+
+    <div fxFlex="45%">
+        <button type="button" mat-stroked-button color="warn" (click)="closeModal(null)" [disabled]="clicked">Cancelar</button>
+    </div>
+</div>

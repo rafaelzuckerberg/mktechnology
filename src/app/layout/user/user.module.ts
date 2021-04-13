@@ -6,6 +6,7 @@ import { DeleteCustomerComponent } from './customer/delete-customer/delete-custo
 import { UserRoutingModule } from './user-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StatModule } from 'src/app/shared/modules/stat/stat.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,13 @@ import { StatModule } from 'src/app/shared/modules/stat/stat.module';
     CommonModule,
     UserRoutingModule,
     StatModule,
-    FlexLayoutModule.withConfig({addFlexToParent: false})
+    FlexLayoutModule.withConfig({addFlexToParent: false}),
+    // FormsModule,
+    ReactiveFormsModule
+  ],
+  entryComponents: [
+    CreateEditCustomerComponent,
+    DeleteCustomerComponent
   ]
 })
 export class UserModule { }

@@ -6,35 +6,56 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-      </ng-container>
-  
-      <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
-        <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
+      <!-- UID Column -->
+      <ng-container matColumnDef="uid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> UID </th>
+        <td mat-cell *matCellDef="let user; let i = index"> {{ i + 1 }} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        <td mat-cell *matCellDef="let user"> {{ user.name }} </td>
       </ng-container>
   
-      <!-- Color Column -->
-      <ng-container matColumnDef="color">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+      <!-- CPF Column -->
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CPF </th>
+        <td mat-cell *matCellDef="let user"> {{ user.cpf }} </td>
+      </ng-container>
+     
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
+      </ng-container>
+  
+      <!-- Birthday Column -->
+      <ng-container matColumnDef="birthday">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data Anivesrário </th>
+        <td mat-cell *matCellDef="let user" [style.color]="user.color"> {{ user.birthday }} </td>
+      </ng-container>
+
+      <!-- Icons Column -->
+      <ng-container matColumnDef="icons">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td mat-cell *matCellDef="let user"> 
+          <mat-icon aria-hidden="false" aria-label="Example home icon">visibility</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openModal(user)">edit</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="delete(user.uid)">delete</mat-icon>
+        </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      <tr mat-row *matRowDef="let user; columns: displayedColumns;">
       </tr>
     </table>
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
   
+
+  
+<button mat-fab color="primary" (click)="openModal(null)" class="btn-fab">
+  <mat-icon>add</mat-icon>
+</button>

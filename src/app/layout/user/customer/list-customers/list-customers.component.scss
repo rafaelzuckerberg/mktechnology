@@ -1,12 +1,63 @@
 table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+
+.mat-column-uid 
+{ 
+  flex: none;
+  width: 5%;
+  // border: 0.1px solid gray;
+}
+
+.mat-column-name 
+{ 
+  flex: none;
+  width: 30%;
+  // border: 0.1px solid gray;
+}
+
+.mat-column-email 
+{ 
+  flex: none;
+  width: 30%;
+  // border: 0.1px solid gray;
+}
+
+.mat-column-cpf 
+{ 
+  flex: none;
+  width: 10%;
+  // border: 0.1px solid gray;
+}
+
+.mat-column-birthday 
+{ 
+  flex: none;
+  width: 10%;
+  // border: 0.1px solid gray;
+}
+
+.mat-column-icons 
+{ 
+  flex: none;
+  width: 15%;
+  // border: 0.1px solid gray;
+}
+
+
+.btn-fab 
+{
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/shared/class/products';
 import { ProductService } from 'src/app/shared/services/product.service';
 
@@ -12,7 +13,7 @@ export class ListProductsEcommerceComponent implements OnInit {
   places: Array<any> = [];
   products: Product[];
 
-  constructor(public service: ProductService) { 
+  constructor(public service: ProductService, private snackbar: MatSnackBar) { 
     this.places = [
       {
           imgSrc: 'assets/images/card-1.jpg',
@@ -46,20 +47,33 @@ export class ListProductsEcommerceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    // localStorage.removeItem('items');
+    console.log(JSON.parse(localStorage.getItem('items')));
+    // console.log(JSON.parse(localStorage.getItem('items')).length);
   }
 
 
   getProducts() {
     this.service.getProducts()
         .subscribe((products) => {
-          console.log(products);
           this.products = products;
         });
   }
 
 
-  addOrder(product: Product) {
-    console.log(product);
+  addOrder(item: Product) {
+    this.service.itemEvent.emit(true);
+    this.service.items.unshift(item);
+    localStorage.setItem('items', JSON.stringify(this.service.items));
+    console.log(this.service.items)
+    this.openSnackBar('Produto adicionado ao pedido!');
+  }
+
+
+  openSnackBar(message: string) {
+    this.snackbar.open(message, 'Fechar', {
+      duration: 700,
+    });
   }
 
 }

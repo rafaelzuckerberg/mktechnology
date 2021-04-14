@@ -1,0 +1,33 @@
+
+
+.block 
+{
+    margin-bottom: 1.5%;
+
+    .mat-card
+    {
+        box-shadow: 1px 2px 3px;
+    }
+}
+
+
+.result-order
+{
+    bottom: 0px;
+    position: fixed;
+    width: 80%;
+
+    .mat-card{
+        background: bisque;
+    }
+}
+
+
+.block-icon 
+{
+
+    .mat-icon 
+    {
+        margin: 60% auto
+    }
+}

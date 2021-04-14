@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
     selector: 'app-topnav',
@@ -8,9 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./topnav.component.scss']
 })
 export class TopnavComponent implements OnInit {
-    public pushRightClass: string;
 
-    constructor(public router: Router, private translate: TranslateService) {
+    public pushRightClass: string;
+    public countItem = null;
+
+    constructor(public router: Router, private translate: TranslateService, private service: ProductService) {
         this.router.events.subscribe(val => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
                 this.toggleSidebar();
@@ -20,6 +23,11 @@ export class TopnavComponent implements OnInit {
 
     ngOnInit() {
         this.pushRightClass = 'push-right';
+        this.service.itemEvent.subscribe(event => {
+            if(event) {
+                this.countItem++;
+            }
+        });
     }
 
     isToggled(): boolean {

@@ -11,10 +11,8 @@
         </mat-form-field>
     </form>
     <span class="nav-spacer"></span>
-    
-    <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
-        <mat-icon>local_grocery_store</mat-icon>
-    </button>
+ 
+    <a mat-button [routerLink]="['/ecommerce/kart']"><mat-icon [matBadge]="countItem" matBadgeColor="warn">local_grocery_store</mat-icon></a>
     
     <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
         <mat-icon>language</mat-icon>

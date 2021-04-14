@@ -1,0 +1,29 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex>
+    </div>
+    <div fxFlex="90%">
+        <h2>Deseja remover {{ this.data['uid'] == null ? 'items?' : 'item?' }}</h2>
+    </div>
+    <div fxFlex>
+    </div>
+</div>
+
+
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex>
+        <h3>{{ item.name }} {{ this.data['uid'] == null ? 'Todos os ítens serão removidos?' : 'será removido do pedido?' }}</h3>
+    </div>
+</div>
+
+
+<div fxLayout="row">
+    <div fxFlex="45%">
+        <button mat-stroked-button color="primary" (click)="delete()" [disabled]="clicked">Deletar</button>
+    </div>
+
+    <div fxFlex></div>
+
+    <div fxFlex="45%">
+        <button type="button" mat-stroked-button color="warn" (click)="closeModal(null)" [disabled]="clicked">Cancelar</button>
+    </div>
+</div>

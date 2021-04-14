@@ -1,0 +1,32 @@
+
+
+.mat-card
+{
+    border-radius: 15px;   
+    width: 80%;
+}
+
+.mat-card:hover
+{
+    border-radius: 15px;
+    box-shadow: 6px 6px 11px;  
+    cursor: pointer;  
+}
+
+.mat-card-actions button
+{
+    width: 100%;
+}
+
+
+.col 
+{
+    width: 25%;
+    white-space: pre-line;
+    display: inline-block;
+    margin: 3% auto; 
+}
+
+
+
+

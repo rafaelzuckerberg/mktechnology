@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule } from '@angular/material/badge';
 import { TranslateModule } from '@ngx-translate/core';
 import { CepDirective } from '../../directives/cep.directive';
 import { MoneyDirective } from '../../directives/money.directive';
@@ -39,6 +40,7 @@ import { DateDirective } from '../../directives/date.directive';
         MatSortModule,
         MatDialogModule,
         MatSnackBarModule,
+        MatBadgeModule,
 
         TranslateModule,        
     ],
@@ -53,6 +55,8 @@ import { DateDirective } from '../../directives/date.directive';
     exports: [
         StatComponent,
         MatTableModule,
+        MatGridListModule,
+        MatCardModule,
         MatToolbarModule,
         MatButtonModule,
         MatSidenavModule,
@@ -64,6 +68,7 @@ import { DateDirective } from '../../directives/date.directive';
         MatSortModule,
         MatDialogModule,
         MatSnackBarModule,
+        MatBadgeModule,
 
         TranslateModule,
 

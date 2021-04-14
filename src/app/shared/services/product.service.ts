@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from '../class/products';
@@ -15,6 +16,9 @@ export class ProductService {
   private _product: Observable<Product>;
 
   product: Product;
+  items: Product[] = [];
+
+  @Output() itemEvent = new EventEmitter();
 
   constructor(private afs: AngularFirestore) { 
     this.productsCollection = this.afs.collection<Product>('products');

@@ -1,0 +1,83 @@
+
+<div fxLayout="row" *ngIf="this.items != null">
+    <div fxFlex></div>
+    <div fxFlex="20" fxFlexAlign="right">
+        <button mat-button style="float: right;" (click)="removeAll(null)">Remover tudo</button>
+    </div>
+</div>
+
+<div *ngIf="this.items != null; else no_product">
+
+    <div fxLayout="row" *ngFor="let item of items" class="block" >
+        <div fxFlex="100">
+            <mat-card>
+                <div fxLayout="row">
+                    <div fxFlex="50">
+                        <h3>{{ item.name }}</h3>
+                    </div>
+                    <div fxFlex="50" fxFlexAlign="right">
+                        <div fxLayout="row">
+                            <div fxFlex></div>
+                            <div fxFlex="20" fxFlexAlign="center">
+                                <h3>R$ {{ item.price }}</h3>
+                            </div>
+                            <div fxFlex="5" fxFlexAlign="right" class="block-icon">
+                                <mat-icon (click)="delete(item)">delete</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+
+<div fxLayout="row" class="result-order" *ngIf="this.items != null">
+    <div fxFlex="100">
+        <mat-card>
+            <div fxLayout="row">
+                <div fxFlex="50">
+                    <h3> Total</h3>
+                </div>
+                <div fxFlex="50" fxFlexAlign="right">
+                    <div fxLayout="row">
+                        <div fxFlex></div>
+                        <div fxFlex="20" fxFlexAlign="right">
+                            <h3>R$ 450,00</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>              
+        </mat-card>
+    </div>
+</div>
+
+
+
+<ng-template #no_product>
+    <div fxLayout="row">
+        <div fxFlex="25"></div>
+        <div fxFlex="50" fxFlexAlign="center none" style="text-align: center;">
+
+            <div fxLayout="row">
+                <div fxFlex="100" fxFlexAlign="center none"><h3>Não há produtos no carrinho</h3></div>
+            </div>
+
+            <div fxLayout="row">
+                <div fxFlex="100" fxFlexAlign="center none">                    
+                    <img src="assets/images/icons/no_product.png" alt="" class="no-product" style="width: 50%;">
+                </div>
+            </div>
+            
+            <div fxLayout="row">
+                <div fxFlex="100" fxFlexAlign="center none">                    
+                    <a mat-stroked-button [routerLink]="['/ecommerce/products']" style="width: 50%; margin-top: 8%;">Comprar</a>
+                </div>
+            </div>
+
+        </div>
+        <div fxFlex="25"></div>
+    </div>
+</ng-template>

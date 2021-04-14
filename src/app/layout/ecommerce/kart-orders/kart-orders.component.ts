@@ -13,13 +13,14 @@ import { DeleteItemOrderComponent } from './delete-item-order/delete-item-order.
 })
 export class KartOrdersComponent implements OnInit {
 
-  items: Order[] = [];
+  items: Product[] = [];
+  total_price: any;
 
   constructor(private service: OrderService, public dialog: MatDialog, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem('items'));
-    console.log(this.items);
+    this.sumItems();
   }
 
 
@@ -59,6 +60,17 @@ export class KartOrdersComponent implements OnInit {
         this.openSnackBar('Todos os ítens foram removidos com sucesso!');
       }
     });
+  }
+
+
+  sumItems() {
+    const soma = this.items.reduce((acumulador, valorAtual) => {
+      return acumulador + valorAtual.price
+    }, 0)
+    this.total_price = soma.toLocaleString(
+      "pt-BR",
+      { style: "currency", currency: "BRL" }
+    );
   }
 
 

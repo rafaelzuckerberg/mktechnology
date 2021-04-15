@@ -20,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CepDirective } from '../../directives/cep.directive';
 import { MoneyDirective } from '../../directives/money.directive';
 import { CpfDirective } from '../../directives/cpf.directive';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DateDirective } from '../../directives/date.directive';
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DateDirective } from '../../directives/date.directive';
         MatDialogModule,
         MatSnackBarModule,
         MatBadgeModule,
+        MatCheckboxModule,
 
         TranslateModule,        
     ],
@@ -69,6 +71,7 @@ import { DateDirective } from '../../directives/date.directive';
         MatDialogModule,
         MatSnackBarModule,
         MatBadgeModule,
+        MatCheckboxModule,
 
         TranslateModule,
 

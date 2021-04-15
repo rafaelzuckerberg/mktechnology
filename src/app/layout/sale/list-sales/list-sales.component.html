@@ -1,0 +1,50 @@
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
+  </mat-form-field>
+    
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- UID Column -->
+      <ng-container matColumnDef="uid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let sale; let i = index"> {{ i + 1 }} </td>
+      </ng-container>
+  
+      <!-- Customer Column -->
+      <ng-container matColumnDef="customer">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CLIENTE </th>
+        <td mat-cell *matCellDef="let sale"> Rafael </td>
+      </ng-container>
+     
+      <!-- Created Column -->
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DATA VENDA </th>
+        <td mat-cell *matCellDef="let sale"> {{ sale.created_at.toDate() | date: 'dd/MM/yyyy' }} às {{ sale.created_at.toDate() | date: 'HH:mm' }} </td>
+      </ng-container>
+  
+      <!-- Total Price Column -->
+      <ng-container matColumnDef="total_price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> TOTAL </th>
+        <td mat-cell *matCellDef="let sale"> {{ sale.total_price }} </td>
+      </ng-container>
+      
+  
+      <!-- Icons Column -->
+      <ng-container matColumnDef="icons">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td mat-cell *matCellDef="let sale"> 
+          <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="detail(sale)">visibility</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="delete(sale.uid)">delete</mat-icon>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let sale; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>

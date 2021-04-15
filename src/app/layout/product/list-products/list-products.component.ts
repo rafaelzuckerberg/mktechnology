@@ -31,8 +31,13 @@ export class ListProductsComponent implements OnInit {
 
   getProducts() {
     this.service.getProducts()
-        .subscribe((products) => {
-          console.log(products);
+        .subscribe((products) => {          
+          products.forEach(item => {
+            item.price = parseFloat(item.price.replace(/\./g,"").replace(",",".")).toLocaleString(
+              "pt-BR",
+              { style: "currency", currency: "BRL" }
+            )
+          });
           this.dataSource = new MatTableDataSource(products);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;

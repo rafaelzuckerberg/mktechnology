@@ -1,0 +1,47 @@
+
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex>
+    </div>
+    <div fxFlex="100%">
+        <h1>Venda Realizada</h1>
+    </div>
+    <div fxFlex>
+    </div>
+</div>
+
+
+<div fxLayout="row" class="row">    
+    <div fxFlex="100%">
+        <h2>Cliente</h2>
+        <p>Rafael Moura</p>
+    </div>
+</div>
+
+
+<div fxLayout="row" class="row">    
+    <div fxFlex="100%">
+        <h2>Produtos</h2>        
+        <mat-list role="list">
+            <mat-list-item *ngFor="let item of this.service.sale.items" role="listitem">{{ item.name }}</mat-list-item>
+        </mat-list>            
+    </div>
+</div>
+
+
+<div fxLayout="row" class="row">    
+    <div fxFlex="70">
+        <h1>Total</h1>
+    </div>
+    <div fxFlex="30">
+        <h1>{{ this.service.sale.total_price }}</h1>
+    </div>
+</div>
+
+
+<div fxLayout="row" style="margin-top: 5%;">
+    <div fxFlex="100%">
+        <button type="button" mat-stroked-button color="warn" (click)="closeModal(null)">Fechar</button>
+    </div>
+</div>
+
+    

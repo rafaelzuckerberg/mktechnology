@@ -40,7 +40,7 @@ export class ListCustomersComponent implements OnInit {
   }
 
   getCustomers() {
-    this.service.getCustomer()
+    this.service.getCustomers()
         .subscribe((customers) => {
           this.dataSource = new MatTableDataSource(customers);
           this.dataSource.paginator = this.paginator;

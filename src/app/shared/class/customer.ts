@@ -1,9 +1,11 @@
 export class Customer
 {
     uid?: string;
+    id?: string;
     name?: string;
     cpf?: string;
     email?: string;
+    password?: string;
     birthday?: string;
 
     cep?: string;

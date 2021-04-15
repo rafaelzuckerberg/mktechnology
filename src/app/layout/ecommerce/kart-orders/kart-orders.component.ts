@@ -3,7 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Order } from 'src/app/shared/class/order';
 import { Product } from 'src/app/shared/class/products';
+import { Sale } from 'src/app/shared/class/sale';
 import { OrderService } from 'src/app/shared/services/order.service';
+import { SaleService } from 'src/app/shared/services/sale.service';
 import { DeleteItemOrderComponent } from './delete-item-order/delete-item-order.component';
 
 @Component({
@@ -14,13 +16,20 @@ import { DeleteItemOrderComponent } from './delete-item-order/delete-item-order.
 export class KartOrdersComponent implements OnInit {
 
   items: Product[] = [];
-  total_price: any;
+  total_price: string;
+  sale: Sale = {};
 
-  constructor(private service: OrderService, public dialog: MatDialog, private snackbar: MatSnackBar) { }
+  constructor(private service: SaleService, public dialog: MatDialog, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem('items'));
     this.sumItems();
+    this.items.forEach(item => {
+      item.price = parseFloat(item.price.replace(/\./g,"").replace(",",".")).toLocaleString(
+        "pt-BR",
+        { style: "currency", currency: "BRL" }
+      )
+    });    
   }
 
 
@@ -65,12 +74,28 @@ export class KartOrdersComponent implements OnInit {
 
   sumItems() {
     const soma = this.items.reduce((acumulador, valorAtual) => {
-      return acumulador + valorAtual.price
-    }, 0)
+      return acumulador + parseFloat(valorAtual.price.replace(/\./g,"").replace(",","."))
+    }, 0);
     this.total_price = soma.toLocaleString(
       "pt-BR",
       { style: "currency", currency: "BRL" }
     );
+  }
+
+
+  doneSale() {
+    this.sale.total_price = this.total_price.replace('R$', '').substring(1, 15);
+    this.sale.created_at = new Date();
+    this.sale.customer = `${localStorage.getItem('uid')} Rafael`;
+    this.sale.items = this.items;
+    this.service.add(this.sale)
+        .then(res => {
+          if(res) {
+            this.items = null;
+            localStorage.removeItem('items');
+            this.openSnackBar('Venda realizada com sucesso!');
+          }
+        })
   }
 
 

@@ -4,16 +4,21 @@
             <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
         </a>
 
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/users/customers']">
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/users/customers']" *ngIf="user.profile != 'Customer'">
             <mat-icon class="sidenav-icon">person</mat-icon> {{ 'Clientes' | translate }}
         </a>
 
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/products/list']">
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/products/list']" *ngIf="user.profile != 'Customer'">
             <mat-icon class="sidenav-icon">takeout_dining</mat-icon> {{ 'Produtos' | translate }}
         </a>
 
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/ecommerce/products']">
             <mat-icon class="sidenav-icon">point_of_sale</mat-icon> {{ 'Ítens' | translate }}
         </a>
+       
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/sales/list']">
+            <mat-icon class="sidenav-icon">money</mat-icon> {{ 'Vendas' | translate }}
+        </a>
+
     </mat-nav-list>
 </div>

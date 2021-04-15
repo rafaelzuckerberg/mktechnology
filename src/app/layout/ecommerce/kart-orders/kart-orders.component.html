@@ -19,7 +19,7 @@
                         <div fxLayout="row">
                             <div fxFlex></div>
                             <div fxFlex="20" fxFlexAlign="center">
-                                <h3>R$ {{ item.price }}</h3>
+                                <h3>{{ item.price }}</h3>
                             </div>
                             <div fxFlex="5" fxFlexAlign="right" class="block-icon">
                                 <mat-icon (click)="delete(item)">delete</mat-icon>
@@ -44,7 +44,7 @@
                 <div fxFlex="50" fxFlexAlign="right">
                     <div fxLayout="row">
                         <div fxFlex></div>
-                        <div fxFlex="20" fxFlexAlign="right">
+                        <div fxFlex="40" fxFlexAlign="right">
                             <h3>{{ total_price }}</h3>
                         </div>
                     </div>
@@ -81,3 +81,9 @@
         <div fxFlex="25"></div>
     </div>
 </ng-template>
+
+
+
+<button mat-fab color="primary" class="btn-fab" (click)="doneSale()" *ngIf="this.items != null">
+    <mat-icon>done_all</mat-icon>
+</button>

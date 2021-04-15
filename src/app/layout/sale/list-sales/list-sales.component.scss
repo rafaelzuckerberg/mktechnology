@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  
+  
+  .mat-column-uid 
+  { 
+    flex: none;
+    width: 5%;
+  }
+
+  .mat-column-icon 
+  { 
+    flex: none;
+    width: 6%;
+  }
+  
+
+  .btn-fab 
+  {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+  }

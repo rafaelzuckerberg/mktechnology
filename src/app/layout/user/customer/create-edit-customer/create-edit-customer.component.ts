@@ -51,6 +51,7 @@ export class CreateEditCustomerComponent implements OnInit {
 
 
   add() {
+    this.form.value.profile = 'Customer';
     this.service.add(this.form.value)
             .then(res => {
               this.openSnackBar('Cliente cadastrado com sucesso!');

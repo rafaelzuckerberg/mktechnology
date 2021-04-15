@@ -44,7 +44,7 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         }),
-        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule, // firestore
         AngularFireDatabaseModule,        
         AngularFireAuthModule, // auth

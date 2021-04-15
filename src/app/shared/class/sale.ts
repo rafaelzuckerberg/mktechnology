@@ -5,6 +5,6 @@ export class Sale
     total_price?: string;
     items?: any;
     customer?: string;
-    created_at?: Date;
+    created_at?: any;
     
 }

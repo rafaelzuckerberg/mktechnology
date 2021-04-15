@@ -4,11 +4,11 @@
             <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
         </a>
 
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/users/customers']" *ngIf="user.profile != 'Customer'">
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/users/customers']">
             <mat-icon class="sidenav-icon">person</mat-icon> {{ 'Clientes' | translate }}
         </a>
 
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/products/list']" *ngIf="user.profile != 'Customer'">
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/products/list']">
             <mat-icon class="sidenav-icon">takeout_dining</mat-icon> {{ 'Produtos' | translate }}
         </a>
 

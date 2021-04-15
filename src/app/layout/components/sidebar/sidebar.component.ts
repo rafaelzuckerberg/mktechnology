@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -12,24 +11,11 @@ export class SidebarComponent implements OnInit {
     public user = {}
     public uid: string;
 
-    constructor(private service: UserService) {
-        this.service.userLogged.subscribe(user => {
-            console.log(user)
-            this.uid = user['user']['uid'];        
-        });
+    constructor() {
     }
 
     ngOnInit() {
         this.showMenu = '';
-        console.log(this.uid)
-        this.service.getCustomers()
-            .subscribe(res => {
-                res.forEach(item => {
-                    if(item.id == this.uid) {                        
-                        this.user = item;
-                    }
-                })
-            });
     }
 
 

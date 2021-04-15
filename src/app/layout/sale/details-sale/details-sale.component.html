@@ -13,7 +13,20 @@
 <div fxLayout="row" class="row">    
     <div fxFlex="100%">
         <h2>Cliente</h2>
-        <p>Rafael Moura</p>
+        <!-- <p>Rafael Moura</p> -->
+
+        <div fxLayout="row" fxFlex="100%">
+            <div fxFlex="50%">
+                {{ this.service.sale.customer }}
+            </div>
+    
+            <div fxFlex></div>
+    
+            <div fxFlex="30%">
+                {{ this.service.sale.created_at.toDate() | date: 'dd/MM/yyyy' }} às {{ this.service.sale.created_at.toDate() | date: 'hh:mm' }}
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -22,7 +35,19 @@
     <div fxFlex="100%">
         <h2>Produtos</h2>        
         <mat-list role="list">
-            <mat-list-item *ngFor="let item of this.service.sale.items" role="listitem">{{ item.name }}</mat-list-item>
+            <mat-list-item *ngFor="let item of this.service.sale.items" role="listitem">                
+                <div fxLayout="row" fxFlex="100%">
+                    <div fxFlex="60%">
+                        {{ item.name }}
+                    </div>
+            
+                    <div fxFlex></div>
+            
+                    <div fxFlex="20%">
+                        {{ item.price }}
+                    </div>
+                </div>
+            </mat-list-item>
         </mat-list>            
     </div>
 </div>

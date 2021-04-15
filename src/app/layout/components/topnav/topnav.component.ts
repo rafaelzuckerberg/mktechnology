@@ -27,6 +27,8 @@ export class TopnavComponent implements OnInit {
         this.service.itemEvent.subscribe(event => {
             if(event) {
                 this.countItem++;
+            } else {
+                this.countItem = null;
             }
         });
     }
@@ -45,8 +47,7 @@ export class TopnavComponent implements OnInit {
     onLoggedout() {
         this._service.logout()
             .then(()=> {
-                localStorage.removeItem('isLoggedin');
-                localStorage.removeItem('uid');
+                localStorage.clear();
                 this.router.navigate(['/login']);
             });
     }

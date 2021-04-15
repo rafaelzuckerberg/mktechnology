@@ -12,6 +12,7 @@ export class DetailsSaleComponent implements OnInit {
   constructor(public modal: MatDialogRef<DetailsSaleComponent>, public service: SaleService) { }
 
   ngOnInit(): void {    
+    console.log(this.service.sale)
     this.service.sale.total_price = parseFloat(this.service.sale.total_price.substring(3, 15).replace(/\./g,"").replace(",",".")).toLocaleString(
       "pt-BR",
       { style: "currency", currency: "BRL" }
